@@ -1,0 +1,154 @@
+﻿using System;
+namespace lab9
+{
+    public class Student
+    {
+        private string _Name;
+        public string Name
+        {
+            get => _Name;
+            set
+            {
+                if (value == null || value == "")
+                    _Name = "NoName";
+                else
+                    _Name = value;
+            }
+        }
+
+        private int _Age;
+        public int Age
+        {
+            get => _Age;
+            set
+            {
+                if (value < 10 || value > 100)
+                    _Age = -1;
+                else
+                    _Age = value;
+            }
+        }
+        private double _Gpa;
+        public double Gpa
+        {
+            get => _Gpa;
+            set
+            {
+                if (value < 0 || value > 10)
+                    _Gpa = -1;
+                else
+                    _Gpa = value;
+            }
+        }
+        static int count = 0;
+
+        public Student()
+        {
+            _Name = "NoName";
+            _Age = -1;
+            _Gpa = -1;
+            count++;
+        }
+
+        public Student(string name, int age, double gpa)
+        {
+            this.Name = name;
+            this.Age = age;
+            this.Gpa = gpa;
+            count++;
+        }
+
+        public Student(Student s)
+        {
+            this.Name = s.Name;
+            this.Age = s.Age;
+            this.Gpa = s.Gpa;
+            count++;
+        }
+
+        public void Compare(Student Student)
+        {
+            if (this.Age > Student.Age)
+                Console.WriteLine($"{this.Name} старше {Student.Name}");
+            else if (this.Age < Student.Age)
+                Console.WriteLine($"GPA {this.Name} младше {Student.Name}");
+            else
+                Console.WriteLine($"GPA {this.Name} ровесник {Student.Name}");
+
+            if (this.Gpa > Student.Gpa)
+                Console.WriteLine($"GPA {this.Name} выше GPA {Student.Name}");
+            else if (this.Gpa < Student._Gpa)
+                Console.WriteLine($"GPA {this.Name} ниже GPA {Student.Name}");
+            else
+                Console.WriteLine($"GPA {this.Name} равен GPA {Student.Name}");
+        }
+
+        public static void CompareStudents(Student firstStudent, Student secoundStudent)
+        {
+            if (firstStudent.Gpa > secoundStudent.Gpa)
+                Console.WriteLine($"GPA {firstStudent.Name} выше GPA {secoundStudent.Name}");
+            else if (firstStudent._Gpa < secoundStudent._Gpa)
+                Console.WriteLine($"GPA {firstStudent.Name} ниже GPA {secoundStudent.Name}");
+            else
+                Console.WriteLine($"GPA {firstStudent.Name} равен GPA {secoundStudent.Name}");
+        }
+
+        public void GetInfo()
+        {
+            Console.WriteLine($"Имя студента: {Name}. Возраст студента: {Age}. Средняя оценка студента: {Gpa}.");
+        }
+
+        public static int GetCountStudents()
+        {
+            return count;
+        }
+
+        public static Student operator ~(Student s)
+        {
+            Student newStudent = s;
+            newStudent.Name = newStudent.Name.ToLower();
+            newStudent.Name = char.ToUpper(newStudent.Name[0]) + newStudent.Name.Substring(1);
+            return newStudent;
+        }
+
+        public static Student operator ++(Student s)
+        {
+            Student newStudent = s;
+            newStudent.Age++;
+            return newStudent;
+        }
+
+        public static Student operator %(Student s, string newName)
+        {
+            return new Student(newName, s.Age, s.Gpa);
+        }
+
+        public static Student operator -(Student s, double d)
+        {
+            Student newStudent = s;
+            if (newStudent.Gpa - d < 0)
+                newStudent.Gpa = 0;
+            else if (newStudent.Gpa - d > 10)
+                newStudent.Gpa = 10;
+            else
+                newStudent.Gpa -= d;
+            return newStudent;
+        }
+
+        public static implicit operator bool (Student s)
+        {
+            return s.Gpa > 6;
+        }
+
+        public static explicit operator int (Student s)
+        {
+            return s.Age < 18 || s.Age > 22 ? -1 : s.Age - 17;
+        }
+        public override bool Equals(Object? obj)
+        {
+            if (obj == null || !(obj is Student))
+                return false;
+            return this.Age == ((Student)obj).Age && this.Name == ((Student)obj).Name && this.Gpa == ((Student)obj).Gpa;
+        }
+    }
+}
