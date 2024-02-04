@@ -10,6 +10,9 @@ namespace lab9
             //TestArray();
         }
 
+        /// <summary>
+        /// Testing class Student
+        /// </summary>
         static void TestStudent()
         {
             Student masha = new Student("Masha", 18, 8);
@@ -66,6 +69,9 @@ namespace lab9
             Console.WriteLine($"Курс обучения {kirill.Name} - {(int)kirill}");
         }
 
+        /// <summary>
+        /// Testing class StudentsArray
+        /// </summary>
         static void TestArray()
         {
             StudentsArray sa = new(10);
@@ -113,6 +119,11 @@ namespace lab9
 
         }
 
+        /// <summary>
+        /// Поиск самого старшего студента с средними оценками выше 8ми
+        /// </summary>
+        /// <param name="sa">Список студентов</param>
+        /// <returns></returns>
         static Student FindStudent(StudentsArray sa)
         {
             Student s = new();

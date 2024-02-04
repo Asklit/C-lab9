@@ -27,11 +27,17 @@ namespace lab9
             }
         }
 
+        /// <summary>
+        /// Конструктор создания объекта без параметров
+        /// </summary>
         public StudentsArray()
         {
             Students = Array.Empty<Student>();
         }
 
+        /// <summary>
+        /// Конструктор создания объекта с рандомными данными
+        /// </summary>
         public StudentsArray(int len)
         {
             Students = new Student[len];
@@ -42,6 +48,9 @@ namespace lab9
             }
         }
 
+        /// <summary>
+        /// Конструктор создания объекта по переданным параметрам
+        /// </summary>
         public StudentsArray(int len, string[] namesArray, int[] ageArray, int[] gpaArray)
         {
             Students = new Student[len];
@@ -52,6 +61,9 @@ namespace lab9
             }
         }
 
+        /// <summary>
+        /// Конструктор глубокого копирования
+        /// </summary>
         public StudentsArray(StudentsArray sa)
         {
             this.Students = new Student[sa.Length];
@@ -62,6 +74,9 @@ namespace lab9
             }
         }
 
+        /// <summary>
+        /// Получение информации о списке студентов
+        /// </summary>
         public void GetInfo()
         {
             for (int i = 0; i < Students.Length; i++)
@@ -70,6 +85,10 @@ namespace lab9
             }
         }
 
+        /// <summary>
+        /// equals metod
+        /// </summary>
+        /// <param name="obj">class object</param>
         public override bool Equals(Object? obj)
         {
             if (obj == null || !(obj is StudentsArray))

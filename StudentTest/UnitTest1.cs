@@ -3,6 +3,9 @@ namespace UnitTest
 {
     public class UnitTest1
     {
+        /// <summary>
+        /// Сравнение разных способов создания объектов
+        /// </summary>
         [Fact]
         public void Test1()
         {
@@ -12,6 +15,9 @@ namespace UnitTest
             Assert.Equal(masha, sasha);
         }
 
+        /// <summary>
+        /// Сравнение копирования студента
+        /// </summary>
         [Fact]
         public void Test2()
         {
@@ -20,6 +26,9 @@ namespace UnitTest
             Assert.Equal(kirill, polina);
         }
 
+        /// <summary>
+        /// Проверка корректности преобразования имени студента
+        /// </summary>
         [Fact]
         public void Test3()
         {
@@ -28,6 +37,9 @@ namespace UnitTest
             Assert.Equal("Masha", masha.Name);
         }
 
+        /// <summary>
+        /// Проверка корректности увеличения возраста студента
+        /// </summary>
         [Fact]
         public void Test4()
         {
@@ -36,6 +48,9 @@ namespace UnitTest
             Assert.Equal(19, masha.Age);
         }
 
+        /// <summary>
+        /// Проверка создания нового студента с новым именем
+        /// </summary>
         [Fact]
         public void Test5()
         {
@@ -45,7 +60,10 @@ namespace UnitTest
             Assert.Equal(masha.Age, timofey.Age);
             Assert.Equal(masha.Gpa, timofey.Gpa);
         }
-
+        
+        /// <summary>
+        /// Проверка корректности изменения GPA
+        /// </summary>
         [Fact]
         public void Test6()
         {
@@ -58,6 +76,9 @@ namespace UnitTest
             Assert.Equal(6.8, masha.Gpa);
         }
 
+        /// <summary>
+        /// Проверка корректности вычисления курса студента и проверки его положительных оценок
+        /// </summary>
         [Fact]
         public void Test7()
         {

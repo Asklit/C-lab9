@@ -71,7 +71,7 @@
         "projectName": "UnitTest",
         "projectPath": "C:\\Users\\A\\source\\repos\\C-lab9\\StudentTest\\UnitTest.csproj",
         "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A\\Source\\Repos\\C-lab9\\StudentTest\\obj\\",
+        "outputPath": "C:\\Users\\A\\source\\repos\\C-lab9\\StudentTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

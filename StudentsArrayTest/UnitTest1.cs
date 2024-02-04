@@ -3,6 +3,9 @@ namespace StudentArrayTest
 {
     public class UnitTest1
     {
+        /// <summary>
+        /// Проверка корректности создания объекта класса
+        /// </summary>
         [Fact]
         public void Test1()
         {
@@ -12,6 +15,9 @@ namespace StudentArrayTest
             Assert.Equal(7, sa[2].Gpa);
         }
 
+        /// <summary>
+        /// Проверка корректности копирования объекта
+        /// </summary>
         [Fact]
         public void Test2()
         {

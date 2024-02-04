@@ -42,6 +42,9 @@ namespace lab9
         }
         static int count = 0;
 
+        /// <summary>
+        /// Конструктор создания объекта без параметров
+        /// </summary>
         public Student()
         {
             _Name = "NoName";
@@ -50,6 +53,9 @@ namespace lab9
             count++;
         }
 
+        /// <summary>
+        /// Конструктор создания объекта по переданным параметрам
+        /// </summary>
         public Student(string name, int age, double gpa)
         {
             this.Name = name;
@@ -58,6 +64,9 @@ namespace lab9
             count++;
         }
 
+        /// <summary>
+        /// Конструктор голубокого копирования объекта
+        /// </summary>
         public Student(Student s)
         {
             this.Name = s.Name;
@@ -66,6 +75,10 @@ namespace lab9
             count++;
         }
 
+        /// <summary>
+        /// Сравнение студентов по возрасту и GPA
+        /// </summary>
+        /// <param name="Student">Студент для сравнения с текущим объектом класса</param>
         public void Compare(Student Student)
         {
             if (this.Age > Student.Age)
@@ -83,8 +96,20 @@ namespace lab9
                 Console.WriteLine($"GPA {this.Name} равен GPA {Student.Name}");
         }
 
+        /// <summary>
+        /// Сравнение студентов по возрасту и GPA
+        /// </summary>
+        /// <param name="firstStudent">Студент для сравнения 1</param>
+        /// <param name="secoundStudent">Студент для сравнения 2</param>
         public static void CompareStudents(Student firstStudent, Student secoundStudent)
         {
+            if (firstStudent.Age > secoundStudent.Age)
+                Console.WriteLine($"{firstStudent.Name} старше {secoundStudent.Name}");
+            else if (firstStudent.Age < secoundStudent.Age)
+                Console.WriteLine($"GPA {firstStudent.Name} младше {secoundStudent.Name}");
+            else
+                Console.WriteLine($"GPA {firstStudent.Name} ровесник {secoundStudent.Name}");
+
             if (firstStudent.Gpa > secoundStudent.Gpa)
                 Console.WriteLine($"GPA {firstStudent.Name} выше GPA {secoundStudent.Name}");
             else if (firstStudent._Gpa < secoundStudent._Gpa)
@@ -93,16 +118,28 @@ namespace lab9
                 Console.WriteLine($"GPA {firstStudent.Name} равен GPA {secoundStudent.Name}");
         }
 
+        /// <summary>
+        /// Получение информации о студенте
+        /// </summary>
         public void GetInfo()
         {
             Console.WriteLine($"Имя студента: {Name}. Возраст студента: {Age}. Средняя оценка студента: {Gpa}.");
         }
 
+        /// <summary>
+        /// Получение общего количества студентов
+        /// </summary>
+        /// <returns>Количество студентов</returns>
         public static int GetCountStudents()
         {
             return count;
         }
 
+        /// <summary>
+        /// Форматирование имени
+        /// </summary>
+        /// <param name="s">Студент</param>
+        /// <returns>Студент с отформатированным именем</returns>
         public static Student operator ~(Student s)
         {
             Student newStudent = s;
@@ -111,6 +148,11 @@ namespace lab9
             return newStudent;
         }
 
+        /// <summary>
+        /// Увеличение возраста студента
+        /// </summary>
+        /// <param name="s">Студент</param>
+        /// <returns>Студент с отформатированным именем</returns>
         public static Student operator ++(Student s)
         {
             Student newStudent = s;
@@ -118,11 +160,23 @@ namespace lab9
             return newStudent;
         }
 
+        /// <summary>
+        /// Создание нового студента с новым именем
+        /// </summary>
+        /// <param name="s">Студент для копирования</param>
+        /// <param name="newName">Новое имя студента</param>
+        /// <returns>Новый студент с такими же параметрами кроме имени</returns>
         public static Student operator %(Student s, string newName)
         {
             return new Student(newName, s.Age, s.Gpa);
         }
 
+        /// <summary>
+        /// Уменьшение GPA
+        /// </summary>
+        /// <param name="s">Студент</param>
+        /// <param name="d">Дельта уменьшения</param>
+        /// <returns></returns>
         public static Student operator -(Student s, double d)
         {
             Student newStudent = s;
@@ -135,15 +189,28 @@ namespace lab9
             return newStudent;
         }
 
+        /// <summary>
+        /// Проверка на положительную успеваемость студента
+        /// </summary>
+        /// <param name="s">Студент</param>
         public static implicit operator bool (Student s)
         {
             return s.Gpa > 6;
         }
 
+        /// <summary>
+        /// Получение номера курса студента
+        /// </summary>
+        /// <param name="s">Студент</param>
         public static explicit operator int (Student s)
         {
             return s.Age < 18 || s.Age > 22 ? -1 : s.Age - 17;
         }
+
+        /// <summary>
+        /// equals metod
+        /// </summary>
+        /// <param name="obj">class object</param>
         public override bool Equals(Object? obj)
         {
             if (obj == null || !(obj is Student))

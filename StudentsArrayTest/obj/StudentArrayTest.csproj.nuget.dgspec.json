@@ -71,7 +71,7 @@
         "projectName": "StudentArrayTest",
         "projectPath": "C:\\Users\\A\\source\\repos\\C-lab9\\StudentsArrayTest\\StudentArrayTest.csproj",
         "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A\\Source\\Repos\\C-lab9\\StudentsArrayTest\\obj\\",
+        "outputPath": "C:\\Users\\A\\source\\repos\\C-lab9\\StudentsArrayTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
